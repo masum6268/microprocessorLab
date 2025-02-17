@@ -1,0 +1,74 @@
+---------Topics of Assembly Language Using (emu8086/dos)----------
+1. Basic Structure of Assembly Language
+i) Register Instructions
+ii) Input/Output
+iii) LEA/Offset
+iv) Value Transfer
+v) Data Types/Data Storage/Data Transfer 
+2. Various Arithmetic Operation
+ -------------------------------
+ -------------------------------
+      TODAY SESSION END HERE
+ --------------------------------
+ ------------------------------------
+ NEXT SESSION START HERE
+ ----- GOOD BYE
+3. Cmp Instructions (je,jz,ja,jl,jnz etc)
+4. Jump Instructions (lebel)
+5. Conditional Statement (loop/Jump)      
+6. Array And String
+8. Stack Operation
+9. Procedure
+10. Macro
+           ****Bonus Part****
+   ->> Built-in Functions,Macro,Procedure
+
+-------------
+Instruction Description
+MOV ->Moves data.
+LEA ->Loads offset address into specific register.
+PUSH-> Moves the content of a memory or register to the top of the stack.
+POP-> Pop out the top of the stack and puts the content in memory or register.
+POPF-> Pop content from the top of the stack and keeps them in the flag register.
+AND-> Performs bit by bit logical AND operation of two operands.
+OR-> Performs bit by bit logical OR operation of two operands.
+XOR-> Performs bit by bit logical XOR operation of two operands
+NOT-> Performs bit by bit logical NOT operation.
+ADD/SUB/MUL/DIV-> Performs addition, subtraction, multiplication and division respectively.
+INC/DEC-> Increment/decrement a register or memory by 1.
+RCL/RCR/ROL/ROR-> Rotate all the bits of an operand left/right using carry flag or without carry flag.
+JAE/JNB/JNC Jump-> if above, not below, equal or no carry i.e. when CF = 0
+JA /JNBE-> Jump if above, not below, or equal i.e. when CF and ZF = 0
+JB/JNAE/JC-> Jump if below, not above, equal or carry i.e. when CF = 0
+
+Opcode Description Flag
+cmp 9,8
+
+JA->Jump IF above CF=0 and ZF=0
+JAE->Jump IF above or equal CF=0
+JB->Jump IF below CF
+JBE->Jump IF below or equal CF or ZF
+JC->Jump IF carry CF
+JE->Jump IF equal ZF
+JG/JGE->Jump IF greater/Greater than equal ZF=0 and SF=OF
+JL/JLE->Jump IF Less/Less than equal SF!=OF
+
+------------
+Registers Description 
+ax= ah(higher 8bits)+al(lower 8bits)
+ 00000000 00000000
+ 00000000 00000000
+ 1111 1111 11111111 //decimal 2= binary 10
+ binary theke hexa 4 bit
+ 2 power 16=65536 //65537
+ 
+ 
+AX->This is accumulator register. It is a 16 bit register.
+BX->It is known as base register. Used for store the value of offset.
+CX->Also known as counter register. Used for loop and rotation.
+DX->Known as data register. Used for manipulating input output port address.
+SP->Stack Pointer.
+BP->Base Pointer
+SI->Source Index Register.
+DI->Destination Index register
+-------------------

@@ -1,0 +1,5 @@
+1-> mount c c:\(Folder_name must exist in c drive)
+2->c:
+3->masm (filename).asm;
+4->link filename.obj;
+5->just filename;

@@ -1,0 +1,27 @@
+ORG 100H
+
+.MODEL SMALL
+.DATA
+
+.CODE
+
+MAIN PROC
+    MOV AX,@DATA
+    MOV DS,AX
+    
+    
+    MOV CX,5
+    MOV DL,'1'
+    
+    INPUT:
+    MOV AH,2
+    INT 21H
+    INC DL
+    lOOP INPUT
+    
+    EXIT:
+    MOV AH,4CH
+    INT 21H
+MAIN ENDP
+
+END MAIN

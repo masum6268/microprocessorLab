@@ -1,0 +1,46 @@
+General Registers:All General Register of 8086 is used for Arthimatic and Logic Operations .The General Registers are
+
+AX(Accumulator Register)
+BX(Base Register)
+CX(Count Register)
+DX(Data Register)
+SP(Stack Pointer)
+BP(Base Pointer)
+SI(Source Index)
+DI(Destination Index)
+DESCRIPTION:
+
+Accumulator Register:It gets used in arithmetic ,logic and data transfer instruction .In manipulation and division ,one of the numbers involved must be in AX or AL.
+
+Base Register:BX is the base Register .BX register is an addressing register.It usually contains a data pointer used for based index or register indirect addressing.
+
+Count Register: CX is the count register .This serves as a loop counter.Program loop constructions are facilitated by it.Count register can be used to counter in string manipulation and shitft/rotate instruction.
+
+Data Register: DX is the Data Register.Data Register can be used as port number in I/O operations.It also used in multiplication and division.
+
+Stack Pointer:This is stack pointer register pointing to program stack.It is used in Conjunction with SS for accessing the stack segment.
+
+Base Pointer(BP):BP is the base pointer Register.Pointing to data in stack segment.Unlike SP,we can use BP to access data in the other segments.
+
+Source Index(SI):SI is the Source Index Register.Which is used to point to memory locations in the data segment addressed by DS. By increment the contents of SI one can easily access consecutive memory locations.
+
+Destination Index(DI): DI is the Destination Index register performs the same function as SI.There is a class of Instructions called String Operations,that use DI to access the memory locations addressed by ES.
+
+ALU:This unit is called Arithmetic & Logic Unit.This unit performs the various arithimatic and logical operation, if required ,based on the instruction to be executed.It can perform arithmetical operations such as add,sub,mul,div,inc,dec. And Logical Operations such as AND,OR,Shift Rotate and test,etc,.
+
+SEGMENT REGISTERS:
+
+Stack Segment.
+Data Segment.
+Extra Segment.
+Instruction Pointer.
+Code Segment Register.
+CODE SEGMENT:Code Segment Register is 16bit Register containig address of 64 KB segment with processor instructions.The Processor use CS Segment for all acsess to instruction reference by instruction pointer Register.CS register cannot be changed directly .The CS register is automatically updated during far jump,far call and far return instructions.
+
+STACK SEGMENT(SS): It is 16Bit register containing address of 64KB segment with program stack.By default,the processor assumes that all data referenced by the stack pointer and Base Pointer register is located in the stack segment.SS register can be changed directly using POP instruction.
+
+DATA SEGMENT(DS):Data Segment is the 16bit register containing address of 64KB segment with program data.By default , the processor assumes that all data referenced by General registers and indeed register is located in the data segment. DS can be changed directly using POP and LDS instructions.
+
+EXTRA SEGMENT(ES):Extra segment is the 16-bit register containing address of 64KB segment,usually with program data.By default the processor assumes that the DI Register references the ES Segment in the string manipulation instructions.ES register can be changed directly using POP and LES instructions.
+
+Instruction Pointer(IP):To access instruction the 8086 uses the register CS and IP.The CS register contains the segment number of the next instruction and IP contains the offset.Unlike other register the IP can’t be directly manipulated by an instruction ,that is,an instruction may nt contain IP as its operands.

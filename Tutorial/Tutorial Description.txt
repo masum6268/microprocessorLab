@@ -1,0 +1,50 @@
+🔧 Learn Assembly Language Series - Day 03 | Double Digit User Input | Using EMU8086
+
+Welcome back to Day 03 of our "Learn Assembly Language" series! In today's session, we delve into the structure of assembly language programming, focusing on the crucial aspect of handling double-digit user input. We'll be using the EMU8086 emulator to illustrate concepts and reinforce your understanding.
+
+🚀 Key Topics Covered:
+
+Overview of Assembly Language Structure
+Input Handling for Double Digit Values
+EMU8086 Demonstration and Practical Examples
+Building on Previous Knowledge from Day 01 and Day 02
+🔍 Timestamps:
+00:00 - Introduction
+01:15 - Understanding Assembly Language Structure
+05:30 - Double Digit User Input Techniques
+10:45 - Live Demo Using EMU8086
+15:20 - Recap and Next Steps
+
+🛠️ Tools Used:
+
+EMU8086 Emulator
+Your Preferred Assembly Language IDE/Editor
+📚 Prerequisites:
+
+Basic understanding of Assembly Language (Watch Day 01 and Day 02 for a quick review)
+EMU8086 installed on your system
+👩‍💻 Code Snippets:
+[https://github.com/pan78m/MicroProcessor_8086]
+
+📌 Helpful Resources:
+
+[https://github.com/pan78m]
+[https://github.com/pan78m/MicroProcessor_8086]
+👍 Don't forget to Like, Share, and Subscribe for more content on Assembly Language Programming!
+
+🔗 Connect with us:
+
+Twitter: [@mahanto_pankaj]
+Instagram: [@aryanpankaj78]
+Discord: [Pan78m]
+🔔 Turn on Notifications to stay updated on upcoming lessons and tutorials.
+
+🎓 Recommended Playlists:
+
+[https://www.youtube.com/watch?v=-z3GVcVT5dM&list=PLUoxNiNTV6lGZxu22uJyxLMHzoebjNXWk&pp=gAQBiAQB]
+[https://www.youtube.com/watch?v=aYIZupiQoCA&list=PLUoxNiNTV6lF-tzmhJOZsJE6frskLcpu0&pp=gAQBiAQB]
+📢 Have questions or suggestions? Drop them in the comments section below! Your feedback is valuable.
+
+🙏 Thank you for joining us on this coding journey. Happy Coding!
+
+#AssemblyLanguage #EMU8086 #ProgrammingTutorial #LearnToCode #Coding101 #ComputerScience #AssemblyProgramming

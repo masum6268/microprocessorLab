@@ -1,0 +1,43 @@
+org 100h
+.model small
+.stack 100h
+.data
+   
+show macro m
+     mov ah,9 ; Function to print a string
+     lea dx,m
+     int 21h    
+endm
+
+input macro          
+
+endm
+space macro 
+    mov ah,2
+    mov dl," "
+    int 21h
+endm    
+
+output macro char 
+     mov ah, 2 ; Function to print a string
+     mov dl,char
+     add dl,48
+     int 21h
+     
+endm
+calSumAvg macro 
+    
+endm
+.code  
+main proc
+mov ax,@data
+mov ds,ax
+ 
+Exit:
+    mov ah, 4ch ; Function to exit the program
+    int 21h 
+    
+ main endp
+
+end main
+

@@ -1,0 +1,403 @@
+Code-1: Print a message 'hello world'
+
+.MODEL SMALL
+.STACK 100H
+
+.DATA
+MSG DB 'HELLO WORLD!$'
+
+.CODE
+MAIN PROC
+
+MOV AX,@DATA
+MOV DS,AX
+
+LEA DX,MSG
+MOV AH,9
+INT 21H
+
+MOV AH,4CH
+INT 21H
+
+
+MAIN ENDP
+END MAIN 
+...................................................
+
+Code-2: Print all the ASCII symbols from 0 to 256
+
+.MODEL SMALL
+.STACK 100H
+
+.CODE
+MAIN PROC
+
+MOV AH,2
+MOV CX,256
+MOV DL,0
+
+PRINT_LOOP:
+INT 21H
+INC DL
+DEC CX
+JNZ PRINT_LOOP 
+
+
+MOV AH,4CH
+INT 21H 
+
+
+MAIN ENDP
+END MAIN 
+.................................................
+
+Code-3: Convert a lowercase letter into uppercase
+
+.MODEL SMALL
+.STACK 100H
+.DATA
+MSG1 DB 'ENTER THE LOWERCASE LATTER:$'
+MSG2 DB 'CORRESPONDING UPPERCASE LATTER IS:'
+CHAR DB ? , '$'
+.CODE
+MAIN PROC
+
+MOV AX,@DATA
+MOV DS,AX
+
+LEA DX,MSG1
+MOV AH,9
+INT 21H
+
+MOV AH,1
+INT 21H
+
+SUB AL,20H 
+MOV CHAR,AL
+
+LEA DX,MSG2
+MOV AH,9
+INT 21H
+
+MOV AH,4CH
+INT 21H 
+
+
+MAIN ENDP
+END MAIN 
+......................................................
+
+Code-4: Convert an uppercase letter into lowercase 
+
+.MODEL SMALL
+.STACK 100H
+.DATA
+MSG1 DB 'ENTER THE UPPERCASE LATTER:$'
+MSG2 DB 'CORRESPONDING LOWERCASE LATTER IS:'
+CHAR DB ? , '$'
+.CODE
+MAIN PROC
+
+MOV AX,@DATA
+MOV DS,AX
+
+LEA DX,MSG1
+MOV AH,9
+INT 21H
+
+MOV AH,1
+INT 21H
+
+ADD AL,20H 
+MOV CHAR,AL
+
+LEA DX,MSG2
+MOV AH,9
+INT 21H
+
+MOV AH,4CH
+INT 21H 
+
+
+MAIN ENDP
+END MAIN 
+......................................................
+
+Code-5: Addition of two numbers
+
+.MODEL SMALL
+.STACK 100H
+
+.DATA 
+MSG1 DB 10,13,'ENTER YOUR FIRST NUMBER:$'
+MSG2 DB 10,13,'ENTER YOUR SECOND NUMBER:$'
+MSG3 DB 10,13,'ADD=$'
+N1 DB ?
+N2 DB ?
+RE DB ?
+
+.CODE 
+MAIN PROC
+
+MOV AX,@DATA
+MOV DS,AX
+
+LEA DX,MSG1
+MOV AH,9
+INT 21H
+
+MOV AH,1
+INT 21H
+
+SUB AL,30H
+MOV N1,AL
+
+LEA DX,MSG2
+MOV AH,9
+INT 21H
+
+MOV AH,1
+INT 21H
+
+SUB AL,30H
+MOV N2,AL
+
+MOV AL,N1
+ADD AL,N2
+MOV RE,AL
+
+ADD AH,30H
+ADD AL,30H
+MOV BX,AX
+
+LEA DX,MSG3
+MOV AH,9
+INT 21H
+
+MOV AH,2
+MOV DL,BH
+INT 21H
+MOV AH,2 
+MOV DL,BL
+INT 21H
+
+MOV AH,4CH
+INT 21H
+
+MAIN ENDP
+END MAIN
+........................................................
+
+Code-6: Multiplication of two numbers
+
+.MODEL SMALL
+.STACK 100H
+.DATA
+NUM1 DB ?
+NUM2 DB ? 
+RESULT DB ?
+MSG1 DB 10,13,'ENTER FIRST NUMBER: $' 
+MSG2 DB 10,13,'ENTER SECOND NUMBER: $' 
+MSG3 DB 10,13,'AFTER MULTIPLYCATION RESULT IS: $' 
+.CODE
+MAIN PROC
+
+MOV AX,@DATA
+MOV DS,AX
+
+LEA DX,MSG1
+MOV AH,9
+INT 21H
+
+MOV AH,1
+INT 21H
+SUB AL,30H
+MOV NUM1,AL
+
+LEA DX,MSG2
+MOV AH,9
+INT 21H
+
+MOV AH,1
+INT 21H
+SUB AL,30H
+MOV NUM2,AL
+
+MUL NUM1
+
+MOV RESULT,AL
+AAM
+
+ADD AH,30H
+ADD AL,30H
+
+MOV BX,AX
+
+LEA DX,MSG3
+MOV AH,9
+INT 21H
+
+MOV AH,2
+MOV DL,BH
+INT 21H 
+
+MOV AH,2
+MOV DL,BL
+INT 21H
+
+MOV AH,4CH
+INT 21H 
+
+MAIN ENDP
+END MAIN 
+.....................................................
+
+Code-7: Taking input a string
+
+.MODEL SMALL
+.STACK 100H
+.DATA
+STRING DB ?
+EXT DB '$'
+MSG DB 10,13,'ENTER STRING $' 
+.CODE
+MAIN PROC
+
+MOV AX,@DATA
+MOV DS,AX
+
+LEA DX,MSG
+MOV AH,9
+INT 21H
+
+LEA SI,STRING
+
+INP:
+MOV AH,1
+INT 21H
+MOV [SI],AL
+INC SI
+
+CMP AL,0DH
+JNZ INP
+
+MOV [SI],'$'
+LEA DX,STRING
+MOV AH,9
+INT 21H 
+
+MOV AH,4CH
+INT 21H 
+
+MAIN ENDP
+END MAIN 
+......................................................
+
+Code-8: Reverse a string
+
+.MODEL SMALL
+.STACK 100H 
+.CODE
+MAIN PROC
+
+MOV AH,2
+MOV DL,'?'
+INT 21H
+
+XOR CX,CX
+MOV AH,1
+INT 21H
+
+WHILE_:
+CMP AL,0DH
+JE END_WHILE
+
+PUSH AX
+INC CX
+
+INT 21H
+JMP WHILE_
+
+END_WHILE:
+MOV AH,2
+MOV DL,0DH
+INT 21H
+MOV DL,0AH
+INT 21H
+JCXZ EXIT
+
+TOP:
+POP DX
+INT 21H
+LOOP TOP
+EXIT: 
+MOV AH,4CH
+INT 21H 
+
+MAIN ENDP
+END MAIN
+...................................................
+
+Code-9: Determine prime number
+
+.MODEL SMALL
+.STACK 100H
+.DATA
+NUM DB ?
+MSG1 DB 10,13,'ENTER NO: $' 
+MSG2 DB 10,13,'NOT PRIME: $' 
+MSG3 DB 10,13,'PRIME $' 
+.CODE
+MAIN PROC
+
+MOV AX,@DATA
+MOV DS,AX
+
+LEA DX,MSG1
+MOV AH,9
+INT 21H
+
+MOV AH,1
+INT 21H
+SUB AL,30H
+MOV NUM,AL
+
+CMP AL,1
+JLE LBL2
+MOV AH,00
+CMP AL,3
+JLE LBL3
+MOV AH,00
+
+MOV CL,2
+DIV CL
+MOV CL,AL
+
+LBL1:
+MOV AH,00
+MOV AL,NUM
+DIV CL
+CMP AH,00
+JZ LBL2
+DEC CL
+CMP CL,1
+JNE LBL1
+JMP LBL3
+LBL2:
+MOV AH,9
+LEA DX,MSG2
+INT 21H
+JMP EXIT
+LBL3:
+MOV AH,9
+LEA DX,MSG3
+INT 21H
+EXIT:
+MOV AH,4CH
+INT 21H 
+
+MAIN ENDP
+END MAIN 
+
+By studying and practicing with examples such as these, you can develop a strong foundation in assembly 
+language programming and become proficient in programming the 8086 microprocessor. Good luck!
